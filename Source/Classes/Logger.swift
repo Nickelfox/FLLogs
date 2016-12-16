@@ -7,6 +7,8 @@
 //
 
 import Foundation
+
+/*
 import XCGLogger
 
 private var logger = Logger.shared.internalLogger
@@ -95,3 +97,5 @@ public func errorlog(_ closure: @autoclosure @escaping () -> Any?, functionName:
 public func severelog(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line, userInfo: [String: Any] = [:]) {
 	logger.severe(closure, functionName: functionName, fileName: fileName, lineNumber: lineNumber, userInfo: userInfo)
 }
+
+*/
