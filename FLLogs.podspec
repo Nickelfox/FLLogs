@@ -25,7 +25,11 @@ A wrapper for logs for iOS by Fox Labs.
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Ravindra Soni' => 'soni@nickelfox.com' }
-  s.source           = { :git => 'https://github.com/Nickelfox/FLLogs.git', :tag => s.version.to_s }
+  s.source           = { 
+    :git => 'https://github.com/Nickelfox/FLLogs.git', 
+    :tag => s.version.to_s, 
+    :submodules => true
+  }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.requires_arc = true
