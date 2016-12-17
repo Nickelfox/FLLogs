@@ -1,0 +1,21 @@
+PODS:
+  - FLLogs (0.1.0):
+    - XCGLogger (~> 4.0)
+  - XCGLogger (4.0.0):
+    - XCGLogger/Core (= 4.0.0)
+  - XCGLogger/Core (4.0.0)
+
+DEPENDENCIES:
+  - FLLogs (from `../`)
+
+EXTERNAL SOURCES:
+  FLLogs:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FLLogs: b22371b46c3662bdbd17a98007258782a7c1d96e
+  XCGLogger: 38063ea89b4c8b23232d18efd2e12eb0005f3ea4
+
+PODFILE CHECKSUM: 66f65d811ced73c0f0b2d54d981856785973c138
+
+COCOAPODS: 1.1.0.rc.2
