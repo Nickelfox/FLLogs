@@ -7,59 +7,91 @@
 //
 
 import Foundation
+import XCGLogger
 
-enum LoggingMode: CustomStringConvertible {
-	case verbose
-	case debug
-	case info
-	case warning
-	case error
-	case severe
+private var logger = Logger.shared.internalLogger
+
+public class Logger {
 	
-	var description: String {
-		switch self {
-		case .verbose:
-			return "verbose"
-		case .debug:
-			return "debug"
-		case .info:
-			return "info"
-		case .warning:
-			return "warning"
-		case .error:
-			return "error"
-		case .severe:
-			return "severe"
-		}
+	public static var shared = Logger()
+	
+	fileprivate var internalLogger: XCGLogger
+	
+	init() {
+		// Create a logger object with no destinations
+		self.internalLogger = XCGLogger(identifier: "advancedLogger", includeDefaultDestinations: false)
+		
+		// Create a destination for the system console log (via NSLog)
+		let systemDestination = AppleSystemLogDestination(identifier: "advancedLogger.systemDestination")
+		
+		// Optionally set some configuration options
+		systemDestination.outputLevel = .debug
+		systemDestination.showLogIdentifier = false
+		systemDestination.showFunctionName = true
+		systemDestination.showThreadName = true
+		systemDestination.showLevel = true
+		systemDestination.showFileName = true
+		systemDestination.showLineNumber = true
+		systemDestination.showDate = true
+		
+		// Add the destination to the logger
+		self.internalLogger.add(destination: systemDestination)
+		
+		// Create a file log destination
+		let logsPath = FileManager.default.urls(
+			for: FileManager.SearchPathDirectory.documentDirectory,
+			in: FileManager.SearchPathDomainMask.userDomainMask
+		)[0].appendingPathComponent("Logs", isDirectory: false)
+		
+		self.internalLogger.info("Logs path: \(logsPath)")
+		
+		let fileDestination = FileDestination(
+			writeToFile: logsPath,
+			identifier: "FLLoger.Logs"
+		)
+		
+		// Optionally set some configuration options
+		fileDestination.outputLevel = .debug
+		fileDestination.showLogIdentifier = false
+		fileDestination.showFunctionName = true
+		fileDestination.showThreadName = true
+		fileDestination.showLevel = true
+		fileDestination.showFileName = true
+		fileDestination.showLineNumber = true
+		fileDestination.showDate = true
+		
+		// Process this destination in the background
+		fileDestination.logQueue = XCGLogger.logQueue
+		
+		// Add the destination to the logger
+		self.internalLogger.add(destination: fileDestination)
+		
+		// Add basic app info, version info etc, to the start of the logs
+		self.internalLogger.logAppDetails()
 	}
+	
 }
 
-public func verboselog(_ message: String, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line) {
-	log(.verbose, message: message, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
+public func verboselog(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line, userInfo: [String: Any] = [:]) {
+	logger.verbose(closure, functionName: functionName, fileName: fileName, lineNumber: lineNumber, userInfo: userInfo)
 }
 
-public func debuglog(_ message: String, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line) {
-	log(.debug, message: message, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
+public func debuglog(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line, userInfo: [String: Any] = [:]) {
+	logger.debug(closure, functionName: functionName, fileName: fileName, lineNumber: lineNumber, userInfo: userInfo)
 }
 
-public func infolog(_ message: String, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line) {
-	log(.info, message: message, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
+public func infolog(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line, userInfo: [String: Any] = [:]) {
+	logger.info(closure, functionName: functionName, fileName: fileName, lineNumber: lineNumber, userInfo: userInfo)
 }
 
-public func warninglog(_ message: String, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line) {
-	log(.warning, message: message, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
+public func warninglog(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line, userInfo: [String: Any] = [:]) {
+	logger.warning(closure, functionName: functionName, fileName: fileName, lineNumber: lineNumber, userInfo: userInfo)
 }
 
-public func errorlog(_ message: String, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line) {
-	log(.error, message: message, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
+public func errorlog(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line, userInfo: [String: Any] = [:]) {
+	logger.error(closure, functionName: functionName, fileName: fileName, lineNumber: lineNumber, userInfo: userInfo)
 }
 
-public func severelog(_ message: String, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line) {
-	log(.severe, message: message, functionName: functionName, fileName: fileName, lineNumber: lineNumber)
+public func severelog(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line, userInfo: [String: Any] = [:]) {
+	logger.severe(closure, functionName: functionName, fileName: fileName, lineNumber: lineNumber, userInfo: userInfo)
 }
-
-private func log(_ mode: LoggingMode, message: String, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line) {
-	let shortFileName = fileName.description.components(separatedBy: "/").last ?? ""
-	print("(\(Date()))[\(mode.description)]: \(shortFileName), \(functionName)[\(lineNumber)]: \(message)")
-}
-
