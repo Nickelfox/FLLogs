@@ -33,4 +33,10 @@ A wrapper for logs for iOS by Fox Labs.
 
   s.source_files = 'Source/**/*'
 
+  s.dependency 'CocoaLumberjack/Swift'
+
+  # s.source_files = 'Pod/Classes/**/*'
+  s.resource_bundles = {
+    'CocoaLumberjackSwiftHelper' => ['Pod/Assets/*.png']
+  }
 end

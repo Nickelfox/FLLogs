@@ -13,13 +13,12 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
-/*		debuglog("This is a debug log")
+		debuglog("This is a debug log")
 		verboselog("This is a verbose log")
 		errorlog("This is a error log")
 		infolog("This is a info log")
 		warninglog("This is a warning log")
 		severelog("This is a severe log")
-*/
 	}
 
 	override func didReceiveMemoryWarning() {
