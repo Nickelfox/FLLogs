@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'FLLogs'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'A wrapper for logs.'
 
 # This description is used to generate tags and improve search results.
@@ -33,6 +33,6 @@ A wrapper for logs for iOS by Fox Labs.
 
   s.source_files = 'Source/**/*'
 
-  s.dependency 'XCGLogger', '~> 4.0'
+  s.dependency 'XCGLogger', '~> 6.0.4'
 
 end
