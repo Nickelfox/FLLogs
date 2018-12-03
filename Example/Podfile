@@ -6,5 +6,5 @@ platform :ios, "9.0"
 use_frameworks!
 
 target 'FLLogs-Example' do
-	pod 'FLLogs', :path => '../'
+    pod 'FLLogs', :path => '../'
 end

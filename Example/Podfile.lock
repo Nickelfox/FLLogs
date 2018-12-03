@@ -1,21 +1,31 @@
 PODS:
-  - FLLogs (0.1.0):
-    - XCGLogger (~> 4.0)
-  - XCGLogger (4.0.0):
-    - XCGLogger/Core (= 4.0.0)
-  - XCGLogger/Core (4.0.0)
+  - FLLogs (0.1.1):
+    - XCGLogger (~> 6.1.0)
+  - ObjcExceptionBridging (1.0.1):
+    - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
+  - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
+  - XCGLogger (6.1.0):
+    - XCGLogger/Core (= 6.1.0)
+  - XCGLogger/Core (6.1.0):
+    - ObjcExceptionBridging
 
 DEPENDENCIES:
   - FLLogs (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - ObjcExceptionBridging
+    - XCGLogger
 
 EXTERNAL SOURCES:
   FLLogs:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FLLogs: b22371b46c3662bdbd17a98007258782a7c1d96e
-  XCGLogger: 38063ea89b4c8b23232d18efd2e12eb0005f3ea4
+  FLLogs: 7326de548618c4b508229053585d780c287c03f3
+  ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
+  XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
 
-PODFILE CHECKSUM: 66f65d811ced73c0f0b2d54d981856785973c138
+PODFILE CHECKSUM: 86843dea1dd256b22a4e40a7f436447010ec5e39
 
-COCOAPODS: 1.1.0.rc.2
+COCOAPODS: 1.5.3

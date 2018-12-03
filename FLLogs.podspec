@@ -33,6 +33,6 @@ A wrapper for logs for iOS by Fox Labs.
 
   s.source_files = 'Source/**/*'
 
-  s.dependency 'XCGLogger', '~> 6.0.4'
+  s.dependency 'XCGLogger', '~> 6.1.0'
 
 end

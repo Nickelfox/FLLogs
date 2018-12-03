@@ -11,7 +11,7 @@ import XCGLogger
 
 public class Logger {
 	
-	public static var shared = Logger()
+	public static var shared = Logger().internalLogger
 	
 	fileprivate var internalLogger: XCGLogger
 	
@@ -40,9 +40,7 @@ public class Logger {
 			for: FileManager.SearchPathDirectory.documentDirectory,
 			in: FileManager.SearchPathDomainMask.userDomainMask
 		)[0].appendingPathComponent("Logs", isDirectory: false)
-		
-        self.internalLogger.debug("Logs path: \(logsPath)")
-		
+				
 		let fileDestination = FileDestination(
 			writeToFile: logsPath,
 			identifier: "FLLoger.Logs"
