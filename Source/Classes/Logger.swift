@@ -73,25 +73,25 @@ public class Logger {
 }
 
 public func verboselog(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line, userInfo: [String: Any] = [:]) {
-	logger.verbose(closure, functionName: functionName, fileName: fileName, lineNumber: lineNumber, userInfo: userInfo)
+	logger.verbose(closure(), functionName: functionName, fileName: fileName, lineNumber: lineNumber, userInfo: userInfo)
 }
 
 public func debuglog(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line, userInfo: [String: Any] = [:]) {
-	logger.debug(closure, functionName: functionName, fileName: fileName, lineNumber: lineNumber, userInfo: userInfo)
+	logger.debug(closure(), functionName: functionName, fileName: fileName, lineNumber: lineNumber, userInfo: userInfo)
 }
 
 public func infolog(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line, userInfo: [String: Any] = [:]) {
-	logger.info(closure, functionName: functionName, fileName: fileName, lineNumber: lineNumber, userInfo: userInfo)
+	logger.info(closure(), functionName: functionName, fileName: fileName, lineNumber: lineNumber, userInfo: userInfo)
 }
 
 public func warninglog(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line, userInfo: [String: Any] = [:]) {
-	logger.warning(closure, functionName: functionName, fileName: fileName, lineNumber: lineNumber, userInfo: userInfo)
+	logger.warning(closure(), functionName: functionName, fileName: fileName, lineNumber: lineNumber, userInfo: userInfo)
 }
 
 public func errorlog(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line, userInfo: [String: Any] = [:]) {
-	logger.error(closure, functionName: functionName, fileName: fileName, lineNumber: lineNumber, userInfo: userInfo)
+	logger.error(closure(), functionName: functionName, fileName: fileName, lineNumber: lineNumber, userInfo: userInfo)
 }
 
 public func severelog(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line, userInfo: [String: Any] = [:]) {
-	logger.severe(closure, functionName: functionName, fileName: fileName, lineNumber: lineNumber, userInfo: userInfo)
+	logger.severe(closure(), functionName: functionName, fileName: fileName, lineNumber: lineNumber, userInfo: userInfo)
 }
