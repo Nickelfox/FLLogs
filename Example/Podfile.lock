@@ -1,12 +1,12 @@
 PODS:
-  - FLLogs (0.1.1):
-    - XCGLogger (~> 6.1.0)
+  - FLLogs (0.1.2):
+    - XCGLogger (~> 7.0.0)
   - ObjcExceptionBridging (1.0.1):
     - ObjcExceptionBridging/ObjcExceptionBridging (= 1.0.1)
   - ObjcExceptionBridging/ObjcExceptionBridging (1.0.1)
-  - XCGLogger (6.1.0):
-    - XCGLogger/Core (= 6.1.0)
-  - XCGLogger/Core (6.1.0):
+  - XCGLogger (7.0.0):
+    - XCGLogger/Core (= 7.0.0)
+  - XCGLogger/Core (7.0.0):
     - ObjcExceptionBridging
 
 DEPENDENCIES:
@@ -22,10 +22,10 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FLLogs: 7326de548618c4b508229053585d780c287c03f3
+  FLLogs: 53291402e04fc772302ff05adb79a4eadec77b07
   ObjcExceptionBridging: c30e00eb3700467e695faeea30e26e18bd445001
-  XCGLogger: 7f7f43f15dfe3a305fa1342b7dc29af656289abd
+  XCGLogger: 0434f15e3909cdc450bb63faf638b8792ab782ab
 
-PODFILE CHECKSUM: 86843dea1dd256b22a4e40a7f436447010ec5e39
+PODFILE CHECKSUM: 66f65d811ced73c0f0b2d54d981856785973c138
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.7.2
