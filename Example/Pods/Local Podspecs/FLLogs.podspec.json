@@ -1,6 +1,6 @@
 {
   "name": "FLLogs",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "summary": "A wrapper for logs.",
   "description": "A wrapper for logs for iOS by Fox Labs.",
   "homepage": "https://github.com/Nickelfox/FLLogs",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/Nickelfox/FLLogs.git",
-    "tag": "0.1.0"
+    "tag": "0.1.2"
   },
   "requires_arc": true,
   "platforms": {
@@ -22,7 +22,7 @@
   "source_files": "Source/**/*",
   "dependencies": {
     "XCGLogger": [
-      "~> 4.0"
+      "~> 7.0.0"
     ]
   }
 }
