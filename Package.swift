@@ -22,9 +22,11 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "FLLogs",
-            dependencies: []),
+            dependencies: [.product(name: "XCGLogger", package: "XCGLogger")],
+            path: "Sources"),
         .testTarget(
             name: "FLLogsTests",
-            dependencies: ["FLLogs"]),
+            dependencies: ["FLLogs"],
+            path: "Tests"),
     ]
 )
