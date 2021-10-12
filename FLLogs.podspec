@@ -31,7 +31,7 @@ A wrapper for logs for iOS by Fox Labs.
   s.requires_arc = true
   s.ios.deployment_target = '9.0'
 
-  s.source_files = 'Source/**/*'
+  s.source_files = 'Sources/**/*'
 
   s.dependency 'XCGLogger', '~> 7.0.0'
 
