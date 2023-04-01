@@ -9,9 +9,11 @@
 import Foundation
 import XCGLogger
 
+private var logger = Logger.shared.internalLogger
+
 public class Logger {
 	
-	public static var shared = Logger().internalLogger
+	public static var shared = Logger()
 	
 	fileprivate var internalLogger: XCGLogger
 	
@@ -40,7 +42,9 @@ public class Logger {
 			for: FileManager.SearchPathDirectory.documentDirectory,
 			in: FileManager.SearchPathDomainMask.userDomainMask
 		)[0].appendingPathComponent("Logs", isDirectory: false)
-				
+		
+		self.internalLogger.info("Logs path: \(logsPath)")
+		
 		let fileDestination = FileDestination(
 			writeToFile: logsPath,
 			identifier: "FLLoger.Logs"
@@ -66,4 +70,28 @@ public class Logger {
 		self.internalLogger.logAppDetails()
 	}
 	
+}
+
+public func verboselog(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line, userInfo: [String: Any] = [:]) {
+	logger.verbose(closure(), functionName: functionName, fileName: fileName, lineNumber: lineNumber, userInfo: userInfo)
+}
+
+public func debuglog(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line, userInfo: [String: Any] = [:]) {
+	logger.debug(closure(), functionName: functionName, fileName: fileName, lineNumber: lineNumber, userInfo: userInfo)
+}
+
+public func infolog(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line, userInfo: [String: Any] = [:]) {
+	logger.info(closure(), functionName: functionName, fileName: fileName, lineNumber: lineNumber, userInfo: userInfo)
+}
+
+public func warninglog(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line, userInfo: [String: Any] = [:]) {
+	logger.warning(closure(), functionName: functionName, fileName: fileName, lineNumber: lineNumber, userInfo: userInfo)
+}
+
+public func errorlog(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line, userInfo: [String: Any] = [:]) {
+	logger.error(closure(), functionName: functionName, fileName: fileName, lineNumber: lineNumber, userInfo: userInfo)
+}
+
+public func severelog(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line, userInfo: [String: Any] = [:]) {
+	logger.severe(closure(), functionName: functionName, fileName: fileName, lineNumber: lineNumber, userInfo: userInfo)
 }
