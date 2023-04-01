@@ -1,0 +1,1 @@
+{"object": {"artifacts": [], "dependencies": [{"basedOn": null, "packageRef": {"identity": "xcglogger", "kind": "remote", "name": "XCGLogger", "path": "https://github.com/DaveWoodCom/XCGLogger"}, "state": {"checkoutState": {"branch": null, "revision": "a9c4667b247928a29bdd41be2ec2c8d304215a54", "version": "7.0.1"}, "name": "checkout"}, "subpath": "XCGLogger"}]}, "version": 4}
