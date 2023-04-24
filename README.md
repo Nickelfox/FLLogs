@@ -45,3 +45,54 @@ Just download and add the `Source` folder to your project.
 - Filter logs by log level and/or tags.
 - Enable or disable logs globally or selectively.
 - Support for asynchronous logging to minimize performance impact.
+
+## Usage
+
+1. Import FLLogs in your Swift file:
+```ruby
+import FLLogs
+```
+
+
+2. Create a `Logging` class and use different helper function for type of logs as `.verbose`, `.debug`, `.info`, `.warning`, `.severe`
+```ruby
+import Foundation
+import FLLogs
+
+public func logVerbose(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line, userInfo: [String: Any] = [:]) {
+    
+    verboselog(closure(), functionName: functionName,
+               fileName: fileName, lineNumber: lineNumber,
+               userInfo: userInfo)
+}
+
+public func logDebug(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line, userInfo: [String: Any] = [:]) {
+    debuglog(closure(), functionName: functionName,
+               fileName: fileName, lineNumber: lineNumber,
+               userInfo: userInfo)
+}
+
+public func logInfo(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line, userInfo: [String: Any] = [:]) {
+    infolog(closure(), functionName: functionName,
+               fileName: fileName, lineNumber: lineNumber,
+               userInfo: userInfo)
+}
+
+public func logWarning(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line, userInfo: [String: Any] = [:]) {
+    warninglog(closure(), functionName: functionName,
+               fileName: fileName, lineNumber: lineNumber,
+               userInfo: userInfo)
+}
+
+public func logError(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line, userInfo: [String: Any] = [:]) {
+    errorlog(closure(), functionName: functionName,
+               fileName: fileName, lineNumber: lineNumber,
+               userInfo: userInfo)
+}
+
+public func logSevere(_ closure: @autoclosure @escaping () -> Any?, functionName: StaticString = #function, fileName: StaticString = #file, lineNumber: Int = #line, userInfo: [String: Any] = [:]) {
+    severelog(closure(), functionName: functionName,
+               fileName: fileName, lineNumber: lineNumber,
+               userInfo: userInfo)
+}
+```
