@@ -7,7 +7,7 @@ FLLogs is a logging utility for Swift that provides a simple and convenient way 
 
 > `$ sudo gem install cocoapods`
 
-If you wish to integrate `AnyErrorKit` in your project, then make following changes in your `Podfile`:
+If you wish to integrate `FLLogs` in your project, then make following changes in your `Podfile`:
 
 ```  
 platform :ios, '10.0'
@@ -26,7 +26,7 @@ After saving `Podfile`. Run the following command:
 
 The [Swift Package Manager](https://swift.org/package-manager) is a tool for automating the distribution of Swift code and is integrated into the swift compiler.
 
-Once you have your Swift package set up, adding AnyErrorKit as a dependency is as easy as adding it to the ```dependencies``` value of your ```Package.swift```.
+Once you have your Swift package set up, adding as a dependency is as easy as adding it to the ```dependencies``` value of your ```Package.swift```.
 
 ```
 dependencies: [
