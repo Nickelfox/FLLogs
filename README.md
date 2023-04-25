@@ -26,7 +26,7 @@ After saving `Podfile`. Run the following command:
 
 The [Swift Package Manager](https://swift.org/package-manager) is a tool for automating the distribution of Swift code and is integrated into the swift compiler.
 
-Once you have your Swift package set up, adding as a dependency is as easy as adding it to the ```dependencies``` value of your ```Package.swift```.
+Once you have your Swift package set up, adding FLLogs as a dependency is as easy as adding it to the ```dependencies``` value of your ```Package.swift```.
 
 ```
 dependencies: [
